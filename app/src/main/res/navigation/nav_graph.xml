@@ -36,7 +36,7 @@
         tools:layout="@layout/fragment_instruction">
 
         <action
-            android:id="@+id/to_shoelistFragment"
+            android:id="@+id/to_shoelist"
             app:destination="@id/shoeListFragment" />
     </fragment>
 
@@ -44,6 +44,21 @@
         android:id="@+id/shoeListFragment"
         android:name="com.udacity.shoestore.ui.shoelist.ShoeListFragment"
         android:label="@string/shoelist"
-        tools:layout="@layout/fragment_shoelist" />
+        tools:layout="@layout/fragment_shoelist" >
+
+        <action
+            android:id="@+id/to_shoeDetail"
+            app:destination="@id/shoeDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/shoeDetailFragment"
+        android:name="com.udacity.shoestore.ui.shoedetail.ShoeDetailFragment"
+        android:label="@string/shoe_detail"
+        tools:layout="@layout/fragment_shoedetail">
+        <argument
+            android:name="arg_shoe"
+            app:argType="com.udacity.shoestore.data.model.Shoe" />
+    </fragment>
 
 </navigation>

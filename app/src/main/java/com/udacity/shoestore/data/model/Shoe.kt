@@ -1,4 +1,4 @@
-package com.udacity.shoestore.models
+package com.udacity.shoestore.data.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

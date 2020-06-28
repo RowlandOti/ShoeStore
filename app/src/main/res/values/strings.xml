@@ -17,4 +17,8 @@
     <string name="login_failed">"Login failed"</string>
     <string name="shoe_detail">Shoe Detail</string>
     <string name="login_header">Shoe Store</string>
+    <string name="msg_gym">It\'s hard to get fit, but it is harder to look in the mirror and dislike what you see</string>
+    <string name="msg_tennis">Keep calm and let the racket do the talking</string>
+    <string name="msg_football">Playing football with your feet is one thing, but playing football with your heart is another</string>
+    <string name="msg_basketball">Some people believe you win with your five best players, but I found out that you win with the five who fit together best</string>
 </resources>

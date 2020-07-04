@@ -116,21 +116,21 @@
                             <com.google.android.material.button.MaterialButton
                                 style="@style/Widget.MaterialButtonStyle"
                                 android:id="@+id/cancelButton"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="start"
-                                android:layout_marginStart="48dp"
-                                android:layout_marginEnd="48dp"
-                                android:text="@string/action_cancel" />
+                                android:layout_marginStart="16dp"
+                                android:layout_marginEnd="16dp"
+                                android:text="@string/action_cancel"
+                                android:layout_weight="1"/>
 
                             <com.google.android.material.button.MaterialButton
+                                android:layout_weight="1"
                                 style="@style/Widget.MaterialButtonStyle"
                                 android:id="@+id/saveButton"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="end"
-                                android:layout_marginStart="48dp"
-                                android:layout_marginEnd="48dp"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginEnd="16dp"
                                 android:text="@string/action_save" />
                         </LinearLayout>
 

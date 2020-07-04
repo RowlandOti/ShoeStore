@@ -22,7 +22,7 @@
         android:id="@+id/onboardingFragment"
         android:name="com.udacity.shoestore.ui.onboarding.OnBoardingFragment"
         android:label="@string/onboarding"
-        tools:layout="@layout/fragment_onboarding">
+        tools:layout="@layout/onboarding_main_layout">
 
         <action
             android:id="@+id/to_instruction"

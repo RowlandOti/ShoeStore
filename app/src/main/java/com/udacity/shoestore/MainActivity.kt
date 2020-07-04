@@ -3,6 +3,7 @@ package com.udacity.shoestore
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -49,27 +50,41 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
-    }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
-        return navController.navigateUp() || super.onSupportNavigateUp()
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.menu_activity_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.logout -> {
-                loginViewModel.logout()
-                true
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id in arrayOf(
+                    R.id.loginFragment,
+                    R.id.onboardingFragment,
+                    R.id.instructionFragment
+                )
+            ) {
+                binding.toolbar.visibility = View.GONE
+            } else {
+                binding.toolbar.visibility = View.VISIBLE
             }
 
-            else -> super.onOptionsItemSelected(item)
         }
     }
-}
+
+        override fun onSupportNavigateUp(): Boolean {
+            val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+            return navController.navigateUp() || super.onSupportNavigateUp()
+        }
+
+        override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+            val inflater = menuInflater
+            inflater.inflate(R.menu.menu_activity_main, menu)
+            return true
+        }
+
+        override fun onOptionsItemSelected(item: MenuItem): Boolean {
+            return when (item.itemId) {
+                R.id.logout -> {
+                    loginViewModel.logout()
+                    true
+                }
+
+                else -> super.onOptionsItemSelected(item)
+            }
+        }
+    }

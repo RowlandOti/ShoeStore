@@ -29,7 +29,7 @@ class InstructionFragment : Fragment() {
 
         binding.proceedButton.setOnClickListener {
             this.findNavController()
-                .navigate(InstructionFragmentDirections.toShoelist())
+                .navigate(InstructionFragmentDirections.toAuthenticatedArea())
         }
     }
 

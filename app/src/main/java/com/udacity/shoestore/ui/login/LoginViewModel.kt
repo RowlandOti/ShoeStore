@@ -40,6 +40,7 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
 
     fun logout() {
         _authenticationState.value = AuthenticationState.UNAUTHENTICATED
+        _loginResult.value = LoginResult(success = null, error =  null)
     }
 
     fun loginDataChanged(username: String, password: String) {

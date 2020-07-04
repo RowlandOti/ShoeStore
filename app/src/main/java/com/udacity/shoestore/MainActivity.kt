@@ -7,7 +7,9 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
+import androidx.navigation.navOptions
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
@@ -41,7 +43,12 @@ class MainActivity : AppCompatActivity() {
         loginViewModel.authenticationState.observe(this, Observer { authenticationState ->
             when (authenticationState) {
                 AuthenticationState.UNAUTHENTICATED -> {
-                    navController.navigate(R.id.loginFragment)
+                    navController.navigate(R.id.loginFragment, null,
+                        navOptions {
+                            popUpTo = R.id.authenticatedAreaGraph
+                            launchSingleTop = true
+                        })
+
                 }
                 AUTHENTICATED -> {
 

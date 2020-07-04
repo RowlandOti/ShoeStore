@@ -13,6 +13,7 @@
         tools:layout="@layout/fragment_login">
 
         <action
+            app:launchSingleTop="true"
             android:id="@+id/to_onboarding"
             app:destination="@id/onboardingFragment"
             app:popUpTo="@id/loginFragment"
@@ -27,9 +28,10 @@
         tools:layout="@layout/onboarding_main_layout">
 
         <action
+            app:launchSingleTop="true"
             android:id="@+id/to_instruction"
             app:destination="@id/instructionFragment"
-            app:popUpTo="@id/loginFragment"
+            app:popUpTo="@id/onboardingFragment"
             app:popUpToInclusive="true" />
     </fragment>
 
@@ -40,6 +42,7 @@
         tools:layout="@layout/fragment_instruction">
 
         <action
+            app:launchSingleTop="true"
             android:id="@+id/to_authenticatedArea"
             app:destination="@id/authenticatedAreaGraph"
             app:popUpTo="@id/instructionFragment"

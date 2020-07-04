@@ -6,12 +6,10 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
-import com.udacity.shoestore.R.id
 import com.udacity.shoestore.databinding.ActivityMainBinding
 import com.udacity.shoestore.ui.login.LoginViewModel
 import com.udacity.shoestore.ui.login.LoginViewModel.AuthenticationState
@@ -33,20 +31,19 @@ class MainActivity : AppCompatActivity() {
             .get(LoginViewModel::class.java)
 
         val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
-        val appBarConfiguration = AppBarConfiguration(navController.graph)
+        val appBarConfiguration = AppBarConfiguration(setOf(R.id.loginFragment, R.id.shoeListFragment))
 
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
-        //setupActionBarWithNavController(this, navController, appBarConfiguration)
         setSupportActionBar(binding.toolbar)
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
 
         loginViewModel.authenticationState.observe(this, Observer { authenticationState ->
             when (authenticationState) {
                 AuthenticationState.UNAUTHENTICATED -> {
-                    navController.navigate(id.loginFragment)
+                    navController.navigate(R.id.loginFragment)
                 }
                 AUTHENTICATED -> {
-                    //navController.popBackStack()
+
                 }
                 else -> {
                 }

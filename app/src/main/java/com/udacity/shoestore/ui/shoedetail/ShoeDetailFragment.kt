@@ -2,6 +2,7 @@ package com.udacity.shoestore.ui.shoedetail
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -10,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.data.model.Shoe
 import com.udacity.shoestore.databinding.FragmentShoedetailBinding
-import com.udacity.shoestore.ui.shoelist.ShoeListFragmentDirections
 import com.udacity.shoestore.ui.shoelist.ShoeListViewModel
 
 class ShoeDetailFragment : Fragment() {
@@ -18,6 +18,16 @@ class ShoeDetailFragment : Fragment() {
     private lateinit var viewModel: ShoeListViewModel
     private lateinit var binding: FragmentShoedetailBinding
     private var shoe = Shoe("", 0.0, "", "", listOf())
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        val item = menu.findItem(R.id.logout)
+        item?.isVisible = false
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

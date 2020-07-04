@@ -3,6 +3,7 @@ package com.udacity.shoestore.ui.onboarding
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
+import android.view.Menu
 import androidx.navigation.fragment.findNavController
 import com.ramotion.paperonboarding.PaperOnboardingFragment
 import com.ramotion.paperonboarding.PaperOnboardingPage
@@ -16,9 +17,15 @@ class OnBoardingFragment : PaperOnboardingFragment(), PaperOnboardingOnRightOutL
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
         elements = getOnBoardingScreens(context)
         setOnChangeListener(this)
         setOnRightOutListener(this)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        val item = menu.findItem(R.id.logout)
+        item?.isVisible = false
     }
 
     companion object {

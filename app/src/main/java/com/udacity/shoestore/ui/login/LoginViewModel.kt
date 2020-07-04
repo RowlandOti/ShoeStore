@@ -1,15 +1,23 @@
 package com.udacity.shoestore.ui.login
 
+import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import android.util.Patterns
+import com.udacity.shoestore.R
 import com.udacity.shoestore.data.LoginRepository
 import com.udacity.shoestore.data.Result
 
-import com.udacity.shoestore.R
-
 class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
+
+    enum class AuthenticationState {
+        UNAUTHENTICATED,        // Initial state, the user needs to authenticate
+        AUTHENTICATED,        // The user has authenticated successfully
+        INVALID_AUTHENTICATION  // Authentication failed
+    }
+
+    private val _authenticationState = MutableLiveData<AuthenticationState>(AuthenticationState.UNAUTHENTICATED)
+    val authenticationState: LiveData<AuthenticationState> = _authenticationState
 
     private val _loginForm = MutableLiveData<LoginFormState>()
     val loginFormState: LiveData<LoginFormState> = _loginForm
@@ -23,9 +31,15 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
 
         if (result is Result.Success) {
             _loginResult.value = LoginResult(success = LoggedInUserView(displayName = result.data.displayName))
+            _authenticationState.value = AuthenticationState.AUTHENTICATED
         } else {
             _loginResult.value = LoginResult(error = R.string.login_failed)
+            _authenticationState.value = AuthenticationState.INVALID_AUTHENTICATION
         }
+    }
+
+    fun logout() {
+        _authenticationState.value = AuthenticationState.UNAUTHENTICATED
     }
 
     fun loginDataChanged(username: String, password: String) {

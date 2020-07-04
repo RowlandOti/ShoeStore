@@ -2,12 +2,14 @@ package com.udacity.shoestore.ui.shoelist
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import com.udacity.shoestore.R
 import com.udacity.shoestore.data.model.Shoe
 import com.udacity.shoestore.databinding.FragmentShoelistBinding
 import com.udacity.shoestore.databinding.RowShoeBinding
@@ -43,6 +45,16 @@ class ShoeListFragment : Fragment() {
             this.findNavController()
                 .navigate(ShoeListFragmentDirections.toShoeDetail())
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(false)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        val item = menu.findItem(R.id.logout)
+        item?.isVisible = true
     }
 
     private fun addShoeToViewGroup(viewGroup: ViewGroup, shoe: Shoe) {

@@ -39,7 +39,13 @@ class ShoeDetailFragment : Fragment() {
         }
 
         binding.saveButton.setOnClickListener {
+            shoe.name = binding.editShoeName.text.toString()
+            shoe.company = binding.editShoeCompany.text.toString()
+            shoe.description = binding.editShoeDescription.text.toString()
+            shoe.size = binding.editShoeSize.text.toString().toDouble()
+
             viewModel.addShoeToList(shoe)
+            this.findNavController().popBackStack(R.id.shoeListFragment, false)
         }
     }
 }

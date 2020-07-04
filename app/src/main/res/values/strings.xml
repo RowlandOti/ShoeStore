@@ -23,4 +23,10 @@
     <string name="msg_instruction">Welcome to your shop manager account. Feel free to add, edit, delete your catalog offers</string>
     <string name="msg_instruction_two">Click Button to Proceed</string>
     <string name="proceed">Proceed</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_description">Description</string>
+    <string name="hint_company">Shoe Brand</string>
+    <string name="hint_size">Size</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_save">Save</string>
 </resources>

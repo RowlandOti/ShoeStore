@@ -5,24 +5,41 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.udacity.shoestore.R
+import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
+import com.udacity.shoestore.data.model.Shoe
+import com.udacity.shoestore.databinding.FragmentShoedetailBinding
+import com.udacity.shoestore.ui.shoelist.ShoeListFragmentDirections
+import com.udacity.shoestore.ui.shoelist.ShoeListViewModel
 
 class ShoeDetailFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private lateinit var viewModel: ShoeListViewModel
+    private lateinit var binding: FragmentShoedetailBinding
+    private var shoe = Shoe("", 0.0, "", "", listOf())
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shoedetail, container, false)
+        binding = FragmentShoedetailBinding.inflate(inflater)
+        binding.lifecycleOwner = this
+        binding.shoe = shoe
+        return binding.root
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) = ShoeDetailFragment()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProviders.of(requireActivity()).get(ShoeListViewModel::class.java)
+
+        binding.cancelButton.setOnClickListener {
+            this.findNavController()
+                .navigate(ShoeDetailFragmentDirections.toShoeList())
+        }
+
+        binding.saveButton.setOnClickListener {
+            viewModel.addShoeToList(shoe)
+        }
     }
 }

@@ -47,7 +47,7 @@ class ShoeListFragment : Fragment() {
 
     private fun addShoeToViewGroup(viewGroup: ViewGroup, shoe: Shoe) {
         val inflater = LayoutInflater.from(viewGroup.context)
-        val binding = RowShoeBinding.inflate(inflater, viewGroup, true)
+        val binding = RowShoeBinding.inflate(inflater, viewGroup, false)
         binding.shoe = shoe
 
         viewGroup.addView(binding.root)

@@ -5,7 +5,6 @@
     <string name="onboarding">OnBoarding</string>
     <string name="instruction">Instruction</string>
     <string name="shoelist">Shoe List</string>
-    <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_login">Login</string>
@@ -22,4 +21,6 @@
     <string name="msg_football">Playing football with your feet is one thing, but playing football with your heart is another</string>
     <string name="msg_basketball">Some people believe you win with your five best players, but I found out that you win with the five who fit together best</string>
     <string name="msg_instruction">Welcome to your shop manager account. Feel free to add, edit, delete your catalog offers</string>
+    <string name="msg_instruction_two">Click Button to Proceed</string>
+    <string name="proceed">Proceed</string>
 </resources>

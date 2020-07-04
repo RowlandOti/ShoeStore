@@ -6,16 +6,18 @@ import android.os.Bundle
 import androidx.navigation.fragment.findNavController
 import com.ramotion.paperonboarding.PaperOnboardingFragment
 import com.ramotion.paperonboarding.PaperOnboardingPage
+import com.ramotion.paperonboarding.listeners.PaperOnboardingOnChangeListener
 import com.ramotion.paperonboarding.listeners.PaperOnboardingOnRightOutListener
 import com.udacity.shoestore.R
 import com.udacity.shoestore.R.string
 
-class OnBoardingFragment : PaperOnboardingFragment(), PaperOnboardingOnRightOutListener {
-
+class OnBoardingFragment : PaperOnboardingFragment(), PaperOnboardingOnRightOutListener,
+    PaperOnboardingOnChangeListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         elements = getOnBoardingScreens(context)
+        setOnChangeListener(this)
         setOnRightOutListener(this)
     }
 
@@ -56,5 +58,9 @@ class OnBoardingFragment : PaperOnboardingFragment(), PaperOnboardingOnRightOutL
     override fun onRightOut() {
         this.findNavController()
             .navigate(OnBoardingFragmentDirections.toInstruction())
+    }
+
+    override fun onPageChanged(p0: Int, p1: Int) {
+
     }
 }

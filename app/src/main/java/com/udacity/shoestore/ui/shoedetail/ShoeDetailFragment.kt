@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import com.udacity.shoestore.R
 import com.udacity.shoestore.data.model.Shoe
 import com.udacity.shoestore.databinding.FragmentShoedetailBinding
 import com.udacity.shoestore.ui.shoelist.ShoeListFragmentDirections
@@ -34,8 +35,7 @@ class ShoeDetailFragment : Fragment() {
         viewModel = ViewModelProviders.of(requireActivity()).get(ShoeListViewModel::class.java)
 
         binding.cancelButton.setOnClickListener {
-            this.findNavController()
-                .navigate(ShoeDetailFragmentDirections.toShoeList())
+            this.findNavController().popBackStack(R.id.shoeListFragment, false)
         }
 
         binding.saveButton.setOnClickListener {

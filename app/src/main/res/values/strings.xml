@@ -21,5 +21,5 @@
     <string name="msg_tennis">Keep calm and let the racket do the talking</string>
     <string name="msg_football">Playing football with your feet is one thing, but playing football with your heart is another</string>
     <string name="msg_basketball">Some people believe you win with your five best players, but I found out that you win with the five who fit together best</string>
-    <string name="welcome_to_your_shop_manager_account_feel_free_to_add_edit_delete_your_catalog_offers">Welcome to your shop manager account. Feel free to add, edit, delete your catalog offers</string>
+    <string name="msg_instruction">Welcome to your shop manager account. Feel free to add, edit, delete your catalog offers</string>
 </resources>

@@ -12,9 +12,12 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-       <!-- <item name="android:windowBackground">@android:color/white</item>-->
+       <item name="android:windowBackground">@android:color/white</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="colorControlNormal">@color/lightGreyTextColor</item>
+        <item name="android:textColorPrimary">@color/primaryTextColorDark</item>
+        <item name="android:textColorSecondary">@color/secondaryTextColorDark</item>
     </style>
 
     <style name="FullscreenTheme" parent="Theme.MaterialComponents.NoActionBar">
@@ -31,7 +34,9 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="Widget.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="errorTextAppearance">@style/TextAppearance.TextInputLayout.ErrorText</item>
         <item name="hintTextAppearance">@style/TextAppearance.TextInputLayout.HintText</item>
+        <item name="android:textColor">@color/primaryTextColorDark</item>
         <item name="boxStrokeColor">?attr/colorControlActivated</item>
         <item name="android:paddingBottom">8dp</item>
         <item name="android:textColorHint">@color/lightGreyTextColor</item>
@@ -39,6 +44,15 @@
 
     <style name="TextAppearance.TextInputLayout.HintText" parent="TextAppearance.MaterialComponents.Subtitle2">
         <item name="android:textColor">?android:attr/colorAccent</item>
+    </style>
+
+    <style name="TextAppearance.TextInputLayout.ErrorText" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textColor">@android:color/holo_red_dark</item>
+    </style>
+
+
+    <style name="Widget.MaterialButtonStyle" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="backgroundTint">@color/button_bg_tint_selector</item>
     </style>
 
 </resources>

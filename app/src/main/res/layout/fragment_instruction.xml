@@ -10,6 +10,7 @@
 
 
         <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialButtonStyle"
             android:id="@+id/proceedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,13 +32,16 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            app:cardCornerRadius="6dp"
+            app:cardCornerRadius="3dp"
+            app:cardBackgroundColor="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:textColor="@color/primaryTextColorDark"
+                android:textSize="18sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|center"
@@ -46,6 +50,8 @@
                 android:textAlignment="center" />
 
             <TextView
+                android:textColor="@color/primaryTextColorDark"
+                android:textSize="16sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"

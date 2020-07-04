@@ -12,7 +12,9 @@ import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
+import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
@@ -101,6 +103,14 @@ class LoginFragment : Fragment() {
     private fun updateUiWithUser(model: LoggedInUserView) {
         this.findNavController()
             .navigate(LoginFragmentDirections.toOnboarding())
+
+/*        this.findNavController()
+            .navigate(R.id.to_onboarding,
+                null,
+                NavOptions.Builder()
+                    .setPopUpTo(R.id.loginFragment,
+                        true).build()
+            )*/
     }
 
     private fun showLoginFailed(@StringRes errorString: Int) {

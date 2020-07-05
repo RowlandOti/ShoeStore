@@ -112,14 +112,6 @@ class LoginFragment : Fragment() {
     private fun updateUiWithUser(model: LoggedInUserView) {
         this.findNavController()
             .navigate(LoginFragmentDirections.toOnboarding())
-
-/*        this.findNavController()
-            .navigate(R.id.to_onboarding,
-                null,
-                NavOptions.Builder()
-                    .setPopUpTo(R.id.loginFragment,
-                        true).build()
-            )*/
     }
 
     private fun showLoginFailed(@StringRes errorString: Int) {

@@ -15,9 +15,9 @@ import com.udacity.shoestore.ui.shoelist.ShoeListViewModel
 
 class ShoeDetailFragment : Fragment() {
 
-    private lateinit var viewModel: ShoeListViewModel
+    private lateinit var shoeListViewModel: ShoeListViewModel
+    private lateinit var viewModel: ShoeDetailViewModel
     private lateinit var binding: FragmentShoedetailBinding
-    private var shoe = Shoe("", 0.0, "", "", listOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,26 +36,25 @@ class ShoeDetailFragment : Fragment() {
     ): View? {
         binding = FragmentShoedetailBinding.inflate(inflater)
         binding.lifecycleOwner = this
-        binding.shoe = shoe
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProviders.of(requireActivity()).get(ShoeListViewModel::class.java)
+        shoeListViewModel = ViewModelProviders.of(requireActivity()).get(ShoeListViewModel::class.java)
+        viewModel = ViewModelProviders.of(requireActivity()).get(ShoeDetailViewModel::class.java)
+
+        binding.viewModel = viewModel
 
         binding.cancelButton.setOnClickListener {
             this.findNavController().popBackStack(R.id.shoeListFragment, false)
         }
 
         binding.saveButton.setOnClickListener {
-            shoe.name = binding.editShoeName.text.toString()
-            shoe.company = binding.editShoeCompany.text.toString()
-            shoe.description = binding.editShoeDescription.text.toString()
-            shoe.size = binding.editShoeSize.text.toString().toDouble()
-
-            viewModel.addShoeToList(shoe)
-            this.findNavController().popBackStack(R.id.shoeListFragment, false)
+            viewModel.getShoe().value?.let {
+                shoeListViewModel.addShoeToList(it)
+                this.findNavController().popBackStack(R.id.shoeListFragment, false)
+            }
         }
     }
 }

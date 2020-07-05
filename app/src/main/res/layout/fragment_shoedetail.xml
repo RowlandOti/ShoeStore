@@ -63,7 +63,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/hint_company"
-                                android:text="@{shoe.company}" />
+                                android:text="@={viewModel.shoe.company}" />
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
@@ -76,7 +76,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/hint_description"
-                                android:text="@{shoe.description}" />
+                                android:text="@={viewModel.shoe.description}" />
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
@@ -89,7 +89,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/hint_size"
-                                android:text="@{String.valueOf(shoe.size)}" />
+                                android:text="@={viewModel.shoe.size}" />
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
@@ -102,7 +102,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/hint_name"
-                                android:text="@{shoe.name}" />
+                                android:text="@={viewModel.shoe.name}" />
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <LinearLayout
@@ -144,10 +144,9 @@
     </androidx.core.widget.NestedScrollView>
 
     <data>
-
         <variable
-            name="shoe"
-            type="com.udacity.shoestore.data.model.Shoe" />
+            name="viewModel"
+            type="com.udacity.shoestore.ui.shoedetail.ShoeDetailViewModel" />
     </data>
 
 </layout>

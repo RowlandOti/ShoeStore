@@ -17,57 +17,52 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:id="@+id/view_image"
+            <ImageView
+                android:id="@+id/imageview"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_height="200dp"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_basketball_shoe"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/imageview"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:contentDescription="@null"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_basketball_shoe" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/card_main_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#80FF6D00"
-                android:orientation="vertical"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                app:layout_constraintBottom_toBottomOf="@+id/view_image">
+                app:layout_constraintBottom_toBottomOf="@+id/imageview">
 
                 <TextView
                     android:id="@+id/tv_name"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="2dp"
                     android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
                     android:text="@{shoe.name}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_description"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     tools:text="Lorem ipsum" />
 
                 <TextView
                     android:id="@+id/tv_description"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:paddingBottom="2dp"
                     android:text="@{shoe.description}"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     tools:text="Ipsalmun Abradsact" />
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 

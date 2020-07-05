@@ -43,6 +43,7 @@ class LoginFragment : Fragment() {
                     return@Observer
                 }
                 binding.loginButton.isEnabled = loginFormState.isDataValid
+                binding.registerButton.isEnabled = loginFormState.isDataValid
                 loginFormState.usernameError?.let {
                     binding.usernameEditText.error = getString(it)
                 }
@@ -92,6 +93,14 @@ class LoginFragment : Fragment() {
         }
 
         binding.loginButton.setOnClickListener {
+            binding.loadingBar.visibility = View.VISIBLE
+            loginViewModel.login(
+                binding.usernameEditText.text.toString(),
+                binding.passwordEditText.text.toString()
+            )
+        }
+
+        binding.registerButton.setOnClickListener {
             binding.loadingBar.visibility = View.VISIBLE
             loginViewModel.login(
                 binding.usernameEditText.text.toString(),
